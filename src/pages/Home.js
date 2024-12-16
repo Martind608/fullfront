@@ -12,6 +12,7 @@ const Home = () => {
     useEffect(() => {
         const fetchProductos = async () => {
             try {
+                console.log('Fetching from:', `${API_BASE_URL}/productos`);
                 const response = await fetch(`${API_BASE_URL}/productos`); 
                 if (!response.ok) throw new Error('Error al obtener productos');
                 const data = await response.json();
