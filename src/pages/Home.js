@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         const fetchProductos = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/productos'); 
+                const response = await fetch(process.env.REACT_APP_API_URL_SERVER_GET); 
                 if (!response.ok) throw new Error('Error al obtener productos');
                 const data = await response.json();
                 setProductos(data); // Actualiza el estado con los productos
