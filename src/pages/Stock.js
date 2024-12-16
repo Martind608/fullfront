@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 const Stock = () => {
     const [productos, setProductos] = useState([]);
     const navigate = useNavigate();
-
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     useEffect(() => {
         const fetchProductos = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/productos');
+                const response = await fetch(`${API_BASE_URL}/productos`);
                 if (!response.ok) throw new Error('Error al obtener productos');
                 const data = await response.json();
                 setProductos(data); //  ----Guarda los productos en el estado

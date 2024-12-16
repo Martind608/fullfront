@@ -7,11 +7,12 @@ const Home = () => {
     const [productos, setProductos] = useState([]); // Estado para los productos
     const [cart, setCart] = useState([]); // Estado para el carrito
 
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     
     useEffect(() => {
         const fetchProductos = async () => {
             try {
-                const response = await fetch(process.env.REACT_APP_API_URL_SERVER_GET); 
+                const response = await fetch(`${API_BASE_URL}/productos`); 
                 if (!response.ok) throw new Error('Error al obtener productos');
                 const data = await response.json();
                 setProductos(data); // Actualiza el estado con los productos

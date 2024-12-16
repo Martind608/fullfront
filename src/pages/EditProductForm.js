@@ -22,12 +22,12 @@ const EditProductForm = () => {
 
     const [loading, setLoading] = useState(true); // Estado carga
     const [error, setError] = useState(null); // Estado errores
-
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     // Carga de datos del producto
     useEffect(() => {
         const fetchProducto = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:5000/api/productos/${id}`);
+                const { data } = await axios.get(`${API_BASE_URL}/productos${id}`);
                 setFormData(data); // Precargar los datos del producto
                 setLoading(false);
             } catch (err) {
@@ -58,7 +58,7 @@ const EditProductForm = () => {
             if (precio < 0) return alert('El precio no puede ser negativo');
             if (stock < 0) return alert('El stock no puede ser negativo');
 
-            await axios.put(`http://localhost:5000/api/productos/${id}`, formData);
+            await axios.put(`${API_BASE_URL}/productos/${id}`, formData);
             alert('Producto actualizado con éxito');
             navigate('/stock'); 
         } catch (err) {
@@ -71,7 +71,7 @@ const EditProductForm = () => {
     const handleDelete = async () => {
         if (window.confirm('¿Estás seguro de que quieres eliminar este producto?')) {
             try {
-                await axios.delete(`http://localhost:5000/api/productos/${id}`);
+                await axios.delete(`${API_BASE_URL}/productos/${id}`);
                 alert('Producto eliminado con éxito');
                 navigate('/stock'); // Redirigir después de eliminar
             } catch (err) {
