@@ -15,19 +15,20 @@ const Login = () => {
         console.log(password);
 
 
-        if (email == '' || password == '') {
+        if (email === '' || password === '') { // Corrección: ===
             alert("Complete los campos");
             return;
         }
-
-        if (email == 'martindesch@gmail.com' && password == '1234') {
-            alert("Login realizado")
+        
+        if (email === 'martindesch@gmail.com' && password === '1234') { // Corrección: ===
+            alert("Login realizado");
             window.sessionStorage.setItem('user', 'martindesch@gmail.com');
             navigate('/admin');
         } else {
             alert("Usuario o contraseña incorrecta");
             navigate('/*');
         }
+        
     }
 
     return (
