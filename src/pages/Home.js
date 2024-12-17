@@ -12,8 +12,8 @@ const Home = () => {
     useEffect(() => {
         const fetchProductos = async () => {
             try {
-                console.log('Fetching from:', `https://fullback-production-7b9e.up.railway.app/api/productos`);
-                const { data } = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/productos`);
+                
+                const { data } = await axios.get(`https://fullback-production-7b9e.up.railway.app/api/productos`);
                 setProductos(data); 
             } catch (error) {
                 console.error('Error al obtener productos:', error);
