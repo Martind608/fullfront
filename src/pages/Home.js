@@ -8,7 +8,7 @@ const Home = () => {
     const [cart, setCart] = useState([]); // Estado para el carrito
 
     // const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-    
+    console.log('Fetching from:', `${process.env.REACT_APP_API_BASE_URL}/productos`);
     useEffect(() => {
         const fetchProductos = async () => {
             try {
