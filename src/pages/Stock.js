@@ -18,7 +18,7 @@ const Stock = () => {
         };
 
         fetchProductos();
-    }, [API_BASE_URL]); 
+    }, ); 
 
     return (
         <div style={{ padding: '20px' }}>
