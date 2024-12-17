@@ -3,12 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Sidebar from '../Componentes/Sidebar';
 import axios from 'axios';
+console.log('Fetching from:', `${process.env.REACT_APP_API_BASE_URL}/productos`);
 const Home = () => {
     const [productos, setProductos] = useState([]); // Estado para los productos
     const [cart, setCart] = useState([]); // Estado para el carrito
 
     // const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-    console.log('Fetching from:', `${process.env.REACT_APP_API_BASE_URL}/productos`);
     useEffect(() => {
         const fetchProductos = async () => {
             try {
