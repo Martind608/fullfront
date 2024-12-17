@@ -27,7 +27,8 @@ const EditProductForm = () => {
     useEffect(() => {
         const fetchProducto = async () => {
             try {
-                const { data } = await axios.get(`${API_BASE_URL}/productos${id}`);
+                const { data } = await axios.get(`${API_BASE_URL}/productos/${id}`);
+
                 setFormData(data); // Precargar los datos del producto
                 setLoading(false);
             } catch (err) {

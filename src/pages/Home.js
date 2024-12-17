@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Sidebar from '../Componentes/Sidebar';
-
+import axios from 'axios';
 const Home = () => {
     const [productos, setProductos] = useState([]); // Estado para los productos
     const [cart, setCart] = useState([]); // Estado para el carrito
@@ -13,10 +13,8 @@ const Home = () => {
         const fetchProductos = async () => {
             try {
                 console.log('Fetching from:', `${API_BASE_URL}/productos`);
-                const response = await fetch(`${API_BASE_URL}/productos`); 
-                if (!response.ok) throw new Error('Error al obtener productos');
-                const data = await response.json();
-                setProductos(data); // Actualiza el estado con los productos
+                const { data } = await axios.get(`${API_BASE_URL}/productos`); 
+                setProductos(data); 
             } catch (error) {
                 console.error('Error al obtener productos:', error);
             }

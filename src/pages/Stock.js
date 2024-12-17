@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Stock = () => {
     const [productos, setProductos] = useState([]);
     const navigate = useNavigate();
     const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
     useEffect(() => {
         const fetchProductos = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}/productos`);
-                if (!response.ok) throw new Error('Error al obtener productos');
-                const data = await response.json();
-                setProductos(data); //  ----Guarda los productos en el estado
+                const { data } = await axios.get(`${API_BASE_URL}/productos`); // Usamos axios
+                setProductos(data); 
             } catch (error) {
                 console.error('Error al obtener productos:', error);
             }
         };
 
         fetchProductos();
-    }, []);
+    }, [API_BASE_URL]); 
 
     return (
         <div style={{ padding: '20px' }}>
