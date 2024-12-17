@@ -39,7 +39,7 @@ const EditProductForm = () => {
         };
 
         fetchProducto();
-    }, [id]);
+    }, [id, API_BASE_URL]);
 
     const handleChange = (event) => {
         const { name, value, type, checked } = event.target;
