@@ -20,8 +20,8 @@ const EditProductForm = () => {
         foto: '',
     });
 
-    // const [loading, setLoading] = useState(true); // Estado carga
-    // const [error, setError] = useState(null); // Estado errores
+    const [loading, setLoading] = useState(true); // Estado carga
+    const [error, setError] = useState(null); // Estado errores
     const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     // Carga de datos del producto
     useEffect(() => {
@@ -82,8 +82,8 @@ const EditProductForm = () => {
         }
     };
 
-    // if (loading) return <p>Cargando datos del producto...</p>;
-    // if (error) return <p>{error}</p>;
+    if (loading) return <p>Cargando datos del producto...</p>;
+    if (error) return <p>{error}</p>;
 
     return (
         <main className="product-form">
