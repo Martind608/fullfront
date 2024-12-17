@@ -7,13 +7,13 @@ const Home = () => {
     const [productos, setProductos] = useState([]); // Estado para los productos
     const [cart, setCart] = useState([]); // Estado para el carrito
 
-    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+    // const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     
     useEffect(() => {
         const fetchProductos = async () => {
             try {
-                console.log('Fetching from:', `${API_BASE_URL}/productos`);
-                const { data } = await axios.get(`${API_BASE_URL}/productos`); 
+                console.log('Fetching from:', `${process.env.REACT_APP_API_BASE_URL}/productos`);
+                const { data } = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/productos`);
                 setProductos(data); 
             } catch (error) {
                 console.error('Error al obtener productos:', error);
